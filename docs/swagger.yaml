@@ -1,0 +1,66 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a sample server for Eventbrite API.
+  title: Eventbrite API
+  version: "1.0"
+paths:
+  /organizations/info:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get organization information
+      tags:
+      - Organization Information
+  /organizations/marketing:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get marketing tools information
+      tags:
+      - Marketing Tools
+  /organizations/payouts:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get payouts information
+      tags:
+      - Payouts Information
+swagger: "2.0"
