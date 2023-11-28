@@ -15,8 +15,9 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/organizations/info": {
+        "/organizations/{orgID}/info": {
             "get": {
+                "description": "Get information about the organization.",
                 "produces": [
                     "application/json"
                 ],
@@ -24,16 +25,34 @@ const docTemplate = `{
                     "Organization Information"
                 ],
                 "summary": "Get organization information",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Organization ID",
+                        "name": "orgID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Successful response",
                         "schema": {
                             "type": "object",
                             "additionalProperties": true
                         }
                     },
+                    "404": {
+                        "description": "Organization not found\"} \"Organization not found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
                     "500": {
-                        "description": "Internal Server Error",
+                        "description": "Failed to fetch organization information\"} \"Failed to fetch organization information",
                         "schema": {
                             "type": "object",
                             "additionalProperties": {
@@ -44,8 +63,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/organizations/marketing": {
+        "/organizations/{orgID}/marketing": {
             "get": {
+                "description": "Get information about the marketing tools used by the organization.",
                 "produces": [
                     "application/json"
                 ],
@@ -53,16 +73,34 @@ const docTemplate = `{
                     "Marketing Tools"
                 ],
                 "summary": "Get marketing tools information",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Organization ID",
+                        "name": "orgID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Successful response",
                         "schema": {
                             "type": "object",
                             "additionalProperties": true
                         }
                     },
+                    "404": {
+                        "description": "Organization not found\"} \"Organization not found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
                     "500": {
-                        "description": "Internal Server Error",
+                        "description": "Failed to fetch marketing tools\"} \"Failed to fetch marketing tools",
                         "schema": {
                             "type": "object",
                             "additionalProperties": {
@@ -73,8 +111,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/organizations/payouts": {
+        "/organizations/{orgID}/payouts": {
             "get": {
+                "description": "Get information about the payouts used by the organization.",
                 "produces": [
                     "application/json"
                 ],
@@ -82,16 +121,34 @@ const docTemplate = `{
                     "Payouts Information"
                 ],
                 "summary": "Get payouts information",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Organization ID",
+                        "name": "orgID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Successful response",
                         "schema": {
                             "type": "object",
                             "additionalProperties": true
                         }
                     },
+                    "404": {
+                        "description": "Organization not found\"} \"Organization not found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
                     "500": {
-                        "description": "Internal Server Error",
+                        "description": "Failed to fetch payouts information\"} \"Failed to fetch payouts information",
                         "schema": {
                             "type": "object",
                             "additionalProperties": {

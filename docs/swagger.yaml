@@ -6,18 +6,32 @@ info:
   title: Eventbrite API
   version: "1.0"
 paths:
-  /organizations/info:
+  /organizations/{orgID}/info:
     get:
+      description: Get information about the organization.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: orgID
+        required: true
+        type: integer
       produces:
       - application/json
       responses:
         "200":
-          description: OK
+          description: Successful response
           schema:
             additionalProperties: true
             type: object
+        "404":
+          description: Organization not found"} "Organization not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
         "500":
-          description: Internal Server Error
+          description: Failed to fetch organization information"} "Failed to fetch
+            organization information
           schema:
             additionalProperties:
               type: string
@@ -25,18 +39,32 @@ paths:
       summary: Get organization information
       tags:
       - Organization Information
-  /organizations/marketing:
+  /organizations/{orgID}/marketing:
     get:
+      description: Get information about the marketing tools used by the organization.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: orgID
+        required: true
+        type: integer
       produces:
       - application/json
       responses:
         "200":
-          description: OK
+          description: Successful response
           schema:
             additionalProperties: true
             type: object
+        "404":
+          description: Organization not found"} "Organization not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
         "500":
-          description: Internal Server Error
+          description: Failed to fetch marketing tools"} "Failed to fetch marketing
+            tools
           schema:
             additionalProperties:
               type: string
@@ -44,18 +72,32 @@ paths:
       summary: Get marketing tools information
       tags:
       - Marketing Tools
-  /organizations/payouts:
+  /organizations/{orgID}/payouts:
     get:
+      description: Get information about the payouts used by the organization.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: orgID
+        required: true
+        type: integer
       produces:
       - application/json
       responses:
         "200":
-          description: OK
+          description: Successful response
           schema:
             additionalProperties: true
             type: object
+        "404":
+          description: Organization not found"} "Organization not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
         "500":
-          description: Internal Server Error
+          description: Failed to fetch payouts information"} "Failed to fetch payouts
+            information
           schema:
             additionalProperties:
               type: string
